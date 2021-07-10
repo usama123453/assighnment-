@@ -1,0 +1,61 @@
+
+
+ Your Task : You don't need to read inputs or print anything. Complete the function maxMeetings() that recieves array S[ ] and F[ ] along with their size N as input parameters and returns the maximum number of meetings that can be held in the meeting room.
+ Expected Time Complexity : O(N*LogN) Expected Auxilliary Space : O(N)
+ Constraints: 1 ≤ N ≤ 105 0 ≤ S[i] < F[i] ≤ 105
+#create constructor
+
+	def __init__(self, start, end, pos):
+		
+		self.start = start
+		self.end = end
+		self.pos = pos
+
+# Function for finding maximum metting 
+def maxMeeting(l, n):
+
+	# Initialising an arraylist for push sorting element 
+	Sorting_arraylist= []
+	
+	# Sorting of meeting according to their finish time.
+	l.sort(key = lambda x: x.end)
+
+	# Initially select first meeting
+	Sorting_arraylist.append(l[0].pos)
+
+	# check_limit to check whether new meeting can be conducted or not.
+
+   check_limit = l[0].end
+	
+	# Check reamning all meeting whether it can be selected or not with the help of loop
+	for i in range(1, n):
+		if l[i].start > check_limit:
+			Sorting_arraylist.append(l[i].pos)
+			check_limit = l[i].end
+			
+	# Print final selected meetings
+	for i in Sorting_arraylist:
+		print(i + 1, end = " ")
+		
+	print()
+
+# main class
+if __name__ == '__main__':
+	
+	# Starting time
+	s = []
+
+	# Finish time
+	f = []
+
+	# Number of meetings.
+	n = len(s)
+
+	l = []
+
+	for i in range(n):
+		
+		# Creating object of meeting and adding in the list
+		l.append(meeting(s[i], f[i], i))
+		
+	maxMeeting(l, n)
