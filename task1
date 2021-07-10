@@ -1,0 +1,27 @@
+Your Task : You don't need to read input or print anything. Your task is to complete the function activityselection() which takes array start[ ], array end[ ] and integer N as input parameters and returns the maximum number of activities that can be done.
+Expected Time Complexity : O(N * Log(N)) Expected Auxilliary Space : O(N)
+Constraints: 1 ≤ N ≤ 2*105 1 ≤ start[i] ≤ end[i] ≤ 109
+# no_of_activities --> Total number of activities
+# start[]-->initialize array to store start time of all activities
+# end[] --> initialize array to store end time of all activities
+  
+# create function having two parameters for find maximum activates 
+def activityselection(start , end ):
+    n = len(end)
+    print "The following activities are selected"
+  
+    # select the first activity 
+    i = 0
+    print i
+  
+    #iterate the rest of activity 
+     for j in range(n):
+       # If this activity has start time greater tha or equal to the finish time of previously selected activity, then select it
+        if s[j] >= f[i]:
+            print j,
+            i = j 
+# store the deep copy results in these array 
+start= []
+end = []
+print  activityselection(start , end)
+
