@@ -1,0 +1,41 @@
+Your Task: The task is to complete the function equilibriumPoint() which takes the array and n as input parameters and returns the point of equilibrium. Return -1 if no such point exists.
+Expected Time Complexity: O(n) Expected Auxiliary Space: O(1)
+Constraints: 1 <= n <= 106 1 <= A[i] <= 108
+
+
+# Python program to find equilibrium  
+# index of an array 
+  
+# function to find the equilibrium index 
+def equilibrium_point(arr): 
+    left_sum = 0    #initialize the left sum 
+    right_sum = 0  #initialize the right sum
+    n = len(arr) 
+  
+    # iterate the array for checking the indexes one by one  
+    
+    for i in range(n): 
+        leftsum = 0
+        rightsum = 0
+      
+        # get left sum 
+        for j in range(i): 
+            left_sum += arr[j] 
+          
+        # get right sum 
+        for j in range(i + 1, n): 
+            right_sum += arr[j] 
+          
+        # if leftsum and rightsum are equal then terminate the loop, 
+        if left_sum == right_sum: 
+            return i 
+      
+    # return -1 if no equilibrium index is found 
+    return -1
+              
+arr = [] 
+print (equilibrium_point(arr)) 
+  
+
+
+
